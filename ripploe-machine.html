@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ripple Machine Diagram</title>
+<style>
+  body {
+    margin: 0;
+    background: #020617;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  svg {
+    width: 90vmin;
+    height: 90vmin;
+    display: block;
+  }
+
+  /* Frame with faint blue glow */
+  .frame {
+    fill: none;
+    stroke: #6ea8ff;
+    stroke-width: 2.5;
+    rx: 12;
+    ry: 12;
+    filter: drop-shadow(0 0 14px rgba(80,150,255,0.35));
+  }
+
+  /* Ripple rings */
+  .ripple {
+    fill: none;
+    stroke: rgba(180, 200, 255, 0.25);
+    stroke-width: 2;
+    filter: blur(1px);
+  }
+
+  /* Main curved labels */
+  .main-label {
+    fill: rgba(200, 220, 255, 0.65);
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-anchor: middle;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  /* Micro-annotations */
+  .micro {
+    fill: rgba(220, 230, 255, 0.75);
+    font-size: 16px;
+    font-family: "Segoe UI", sans-serif;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+
+<body>
+
+<svg viewBox="0 0 1000 1000">
+
+  <!-- Frame -->
+  <rect x="40" y="40" width="920" height="920" rx="12" ry="12" class="frame"/>
+
+  <!-- Ripple rings -->
+  <circle cx="500" cy="500" r="80"  class="ripple"/>
+  <circle cx="500" cy="500" r="180" class="ripple"/>
+  <circle cx="500" cy="500" r="300" class="ripple"/>
+  <circle cx="500" cy="500" r="420" class="ripple"/>
+
+  <!-- Curved label paths -->
+  <defs>
+    <path id="ring1" d="M 500 420 A 80 80 0 1 1 499.9 420" />
+    <path id="ring2" d="M 500 320 A 180 180 0 1 1 499.9 320" />
+    <path id="ring3" d="M 500 200 A 300 300 0 1 1 499.9 200" />
+    <path id="ring4" d="M 500 80  A 420 420 0 1 1 499.9 80" />
+  </defs>
+
+  <!-- Main curved labels -->
+  <text class="main-label">
+    <textPath href="#ring1" startOffset="50%">INTENTION</textPath>
+  </text>
+  <text class="main-label">
+    <textPath href="#ring2" startOffset="50%">COLLECTION</textPath>
+  </text>
+  <text class="main-label">
+    <textPath href="#ring3" startOffset="50%">PATTERN ENGINE</textPath>
+  </text>
+  <text class="main-label">
+    <textPath href="#ring4" startOffset="50%">OUTPUT FIELD</textPath>
+  </text>
+
+  <!-- Micro-annotation clusters -->
+  <text x="540" y="470" class="micro">initial impulse</text>
+  <text x="560" y="520" class="micro">signal density</text>
+
+  <text x="650" y="650" class="micro">wave capture</text>
+  <text x="660" y="690" class="micro">cluster threshold</text>
+
+  <text x="300" y="350" class="micro">semantic clustering</text>
+  <text x="320" y="390" class="micro">correlation field</text>
+
+  <text x="250" y="750" class="micro">echo attenuation</text>
+  <text x="260" y="790" class="micro">prediction drift</text>
+
+</svg>
+
+</body>
+</html>
